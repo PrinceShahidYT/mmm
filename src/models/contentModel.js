@@ -14,7 +14,7 @@ const contentSchema = new Schema({
 contentSchema.methods.toJSON = function () {
   const obj = this.toObject();
   if (obj.contentUrl.includes(".m3u8")) {
-    obj.contentUrl = obj.contentUrl.replace(/https:\/\/.*?\.cloudfront\.net/g, `${process.env.NEW_URL}`).replace(/https:\/\/.*?\.bitgravity\.com/g, `${process.env.NEW_URL}`);
+    obj.contentUrl = obj.contentUrl.replace("BaseUrlAPI", `${process.env.NEW_URL}`);
   }
   return obj;
 };
